@@ -2,25 +2,34 @@
 <html>
 <head>
     <title>My Love</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-           background-color: crimson;
+            background-color: crimson;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
+
         .main {
             background: rgb(0, 0, 0);
-            padding: 30px;
-            width: 30%;
-            margin: auto;
-            margin-top: 200px;
+            padding: 20px;
+            width: 90%;              
+            max-width: 400px;       
+            margin: 50px auto;       
             border-radius: 10px;
+            box-sizing: border-box;  
         }
+
         input {
-            margin: 10px;
-            padding: 10px;
-            width: 80%;
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;         
             border: none;
             border-radius: 5px;
+            font-size: 16px;
         }
+
         .heart {
             background-color: red;
             color: white;
@@ -29,14 +38,33 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 20px;
+            margin-top: 15px;
         }
+
         .heart::before {
             content: "❤";
         }
+
         .box {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* 📱 Extra tweaks for very small screens */
+        @media (max-width: 480px) {
+            .main {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            input {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .heart {
+                font-size: 18px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -44,7 +72,7 @@
     <div class="main">
         <form class="box" id="loveForm">
             <input type="text" placeholder="Enter your Name" required><br>
-            <input type="text" placeholder="Enter your Lover's Name" required><br>
+            <input type="text" placeholder="Enter your Hubby Name" required><br>
             <input type="password" id="password" placeholder="Enter your Password" required><br>
             <button type="submit" class="heart"></button>
         </form>
@@ -52,7 +80,7 @@
 
     <script>
         document.getElementById("loveForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // prevent form from submitting normally
+            event.preventDefault();
             let password = document.getElementById("password").value;
 
             if (password === "2804") {
